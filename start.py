@@ -29,12 +29,11 @@ def attrs(obj=None, show=None, depth=0):
     types = [ typer(attr) for attr in attrs ]
     vals = sorted(zip(attrs,types), key=lambda x: str(x[1]))
     if show:
-        vals = [ v for v in vals if any( showtype in str(val[1]).split("'")[1] if type(showtype) == str else showtype == val[1] for showtype in show ) ]
+        vals = [ v for v in vals if any( showtype in str(v[1]).split("'")[1] if type(showtype) == str else showtype == v[1] for showtype in show ) ]
     fmtdict(vals, align=True)
 
 def fmtdict(d, align=False):
     if len(d) == 0:
-        print "Empty object/no matching attrs."
         return
     if type(d) == list and type(d[0]) == tuple:
         keys = [ i[0] for i in d ]
