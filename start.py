@@ -12,7 +12,7 @@ else:
     readline.parse_and_bind("tab: complete")
 
 def attrs(obj=None, show=None, depth=0):
-    if not obj:
+    if obj is None:
         #Equivalent to empty dir() from top level interpreter
         frame = inspect.currentframe().f_back
         attrlist = frame.f_locals
@@ -29,10 +29,13 @@ def attrs(obj=None, show=None, depth=0):
     types = [ typer(attr) for attr in attrs ]
     vals = sorted(zip(attrs,types), key=lambda x: str(x[1]))
     if show:
-        vals = [ val for val in vals if any( showtype in str(val[0]) for showtype in show ) ]
+        vals = [ v for v in vals if any( showtype in str(val[1]).split("'")[1] if type(showtype) == str else showtype == val[1] for showtype in show ) ]
     fmtdict(vals, align=True)
 
 def fmtdict(d, align=False):
+    if len(d) == 0:
+        print "Empty object/no matching attrs."
+        return
     if type(d) == list and type(d[0]) == tuple:
         keys = [ i[0] for i in d ]
         tuples = d
@@ -48,7 +51,6 @@ def fmtdict(d, align=False):
 
 def byline(l):
     print "\n".join(str(i) for i in l)
-keys=byline
 
 def pp(obj):
     print json.dumps(obj, indent=2)
@@ -59,3 +61,6 @@ def pickkeys(obj, *keys):
 def writeto(buffer, f):
     with open(f, "w") as out:
         out.write(buffer)
+
+def keys(d):
+    print "\n".join(str(k) for k in d)
