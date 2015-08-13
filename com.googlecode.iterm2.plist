@@ -124,6 +124,8 @@
 	<string>1979 231 924 485 1440 -300 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>2255 35 570 376 1440 -300 1920 1177 </string>
+	<key>NeverWarnAboutShortLivedSessions_4C750E32-1671-4C4D-B36F-4C202875A801</key>
+	<true/>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -502,6 +504,13 @@
 					<key>Text</key>
 					<string>0x7f</string>
 				</dict>
+				<key>0x54-0x120000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x02 0x63</string>
+				</dict>
 				<key>0x65-0x100000</key>
 				<dict>
 					<key>Action</key>
@@ -536,6 +545,13 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x02 0x6C</string>
+				</dict>
+				<key>0x70-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x02 0x70</string>
 				</dict>
 				<key>0x77-0x100000</key>
 				<dict>
@@ -974,7 +990,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>461013027.71098202</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>461099428.71252197</real>
+	<real>461186001.28546</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1037,7 +1053,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-12T19:10:16Z</date>
+	<date>2015-08-13T19:12:42Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1078,6 +1094,10 @@
 	<integer>0</integer>
 	<key>WordCharacters</key>
 	<string></string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
 	<string>2.1.1</string>
 </dict>
