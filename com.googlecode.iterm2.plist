@@ -107,7 +107,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>302</string>
+		<string>319</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -121,9 +121,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>670 127 599 174 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1979 231 924 485 1440 -300 1920 1200 </string>
+	<string>2128 557 924 485 1440 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2255 35 570 376 1440 -300 1920 1177 </string>
+	<string>1440 0 1920 1200 1440 0 1920 1177 </string>
 	<key>NeverWarnAboutShortLivedSessions_4C750E32-1671-4C4D-B36F-4C202875A801</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -399,6 +399,20 @@
 					<key>Text</key>
 					<string>0x02 0x4E</string>
 				</dict>
+				<key>0x22-0x120000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x02 0x22</string>
+				</dict>
+				<key>0x25-0x120000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x02 0x25</string>
+				</dict>
 				<key>0x2d-0x40000</key>
 				<dict>
 					<key>Action</key>
@@ -503,6 +517,13 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x7f</string>
+				</dict>
+				<key>0x3c-0x120000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x02 0x2c</string>
 				</dict>
 				<key>0x54-0x120000</key>
 				<dict>
@@ -987,10 +1008,12 @@
 			<string>/Users/kreynolds</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>461013027.71098202</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>461186001.28546</real>
+	<real>461532206.868348</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1053,7 +1076,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-13T19:12:42Z</date>
+	<date>2015-08-18T18:57:18Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1099,6 +1122,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.1.1</string>
+	<string>2.0</string>
 </dict>
 </plist>
