@@ -12,6 +12,12 @@ else:
     readline.parse_and_bind("tab: complete")
 
 def attrs(obj=None, show=None, depth=0):
+    """ Get the attributes and types of either an object, or the top level
+        frame. 'show' parameter is an iterable of types to display, 
+        ie show=(dict, list), also available as strings which are
+        substring matched, ie show=("method","function",dict).
+        depth=0 shows only public names, depth=1 also shows _names,
+        depth=2 also shows _names and __names. """
     if obj is None:
         #Equivalent to empty dir() from top level interpreter
         frame = inspect.currentframe().f_back
@@ -29,7 +35,13 @@ def attrs(obj=None, show=None, depth=0):
     types = [ typer(attr) for attr in attrs ]
     vals = sorted(zip(attrs,types), key=lambda x: str(x[1]))
     if show:
-        vals = [ v for v in vals if any( showtype in str(v[1]).split("'")[1] if type(showtype) == str else showtype == v[1] for showtype in show ) ]
+        if type(show) == str:
+            vals = [ v for v in vals if show in str(v[1]).split("'")[1] ]
+        elif type(show) == type:
+            vals = [ v for v in vals if v[1] == show ]
+        else:
+            vals = [ v for v in vals if any( showtype in str(v[1]).split("'")[1] if type(showtype) == str 
+                                             else showtype == v[1] for showtype in show ) ]
     fmtdict(vals, align=True)
 
 def fmtdict(d, align=False):
