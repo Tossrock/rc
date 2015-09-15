@@ -4,3 +4,5 @@
 :set expandtab
 :set hlsearch
 :set t_Co=256
+:highlight Search ctermbg=DarkMagenta ctermfg=White
+:highlight Comment ctermfg=DarkMagenta
