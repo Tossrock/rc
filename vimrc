@@ -4,7 +4,6 @@
 :set expandtab
 :set hlsearch
 :set t_Co=256
-:set number
 :highlight Search ctermbg=DarkBlue ctermfg=White
 :highlight Comment ctermfg=Blue
 :map <C-e> r☐<CR>
