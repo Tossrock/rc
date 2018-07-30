@@ -1,6 +1,6 @@
 import inspect
 import subprocess as sub
-import sys, os, re, json, yaml, urllib2
+import sys, os, re, json
 from datetime import datetime, timedelta
 import readline
 import rlcompleter
@@ -55,16 +55,16 @@ def fmtdict(d, align=False):
         tuples = d.items()
     fmt = "{k}:{spc}{v}"
     if not align:
-        print "\n".join("{k}: {v}".format(k=k, v=v) for k,v in tuples)
+        print( "\n".join("{k}: {v}".format(k=k, v=v) for k,v in tuples))
     else:
         maxlen = max(len(str(k)) for k in keys) + 1
-        print "\n".join("{k}:{spc}{v}".format(k=k, spc=" "*(maxlen-len(str(k))), v=v) for k,v in tuples)
+        print("\n".join("{k}:{spc}{v}".format(k=k, spc=" "*(maxlen-len(str(k))), v=v) for k,v in tuples))
 
 def byline(l):
-    print "\n".join(str(i) for i in l)
+    print("\n".join(str(i) for i in l))
 
 def pp(obj):
-    print json.dumps(obj, indent=2)
+    print(json.dumps(obj, indent=2))
 
 def pickkeys(obj, *keys):
     return { key: obj[key] for key in keys}
@@ -74,4 +74,4 @@ def writeto(buffer, f):
         out.write(buffer)
 
 def keys(d):
-    print "\n".join(str(k) for k in d)
+    print("\n".join(str(k) for k in d))
