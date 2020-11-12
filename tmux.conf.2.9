@@ -1,0 +1,86 @@
+# Fix paste-timing issue from 2.1
+set -g assume-paste-time 0
+
+# Scrollback
+set -g history-limit 50000
+
+# Copy paste
+#set-option -g default-command "reattach-to-user-namespace -l zsh"
+setw -g mode-keys vi
+unbind [
+bind q copy-mode
+unbind p
+bind p paste-buffer
+bind -T copy-mode-vi 'v' send-keys -X begin-selection
+bind -T copy-mode-vi 'V' send-keys -X rectangle-toggle
+bind -T copy-mode-vi 'x' send-keys -X clear-selection
+bind -T copy-mode-vi 'y' send-keys -X copy-selection-and-cancel
+bind y run "~/.tmux/tmux-copy"
+
+# black magic to fix the 2.0 newline copying behavior
+# buffer_args='"$@"'
+# buffer_name='"%%"'
+# chomp="perl -0777 -pe s/\\\\n+\\\\z//m"
+# chomp_buffer="_ () { tmux save-buffer $buffer_args - | $chomp | tmux load-buffer $buffer_args -; tmux paste-buffer $buffer_args -p; }; _"
+# bind-key '=' choose-buffer "new-window -d '$chomp_buffer -b $buffer_name'"
+# bind-key p new-window -d "$chomp_buffer -b `tmux list-buffers -F '#{buffer_name}' | head -n 1`"
+
+# Window selection
+bind m last-window
+bind N previous-window
+
+# Pane selection
+unbind l
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Pane splitting into cwd
+unbind %
+bind % split-window -h -c "#{pane_current_path}"
+unbind '"'
+bind '"' split-window -c "#{pane_current_path}"
+
+# Zoom
+unbind z
+bind z resize-pane -Z
+
+# Reload conf
+bind R source ~/.tmux.conf
+
+# Mouse mode
+# set-option -g mouse-select-pane on
+# set-option -g mouse-resize-pane on
+# setw -g mode-mouse on
+
+# Selection coloring
+set -g mode-style bg=colour81
+
+# Pane coloring
+set -g pane-border-style fg=colour237
+set -g pane-active-border-style fg=colour004
+
+# Status bar stuff
+set -g status-style bg=colour17,fg=white
+set -g status-left-length 24
+set -g window-status-style bg=colour240,fg=black
+set -g window-status-bell-style bg=colour162
+set -g window-status-format '#{?window_bell_flag,#[bg=colour162],} #I #[bg=colour236]#[fg=colour248] #W '
+set -g window-status-current-format '#{?window_bell_flag,#[bg=colour162],} #I #[bg=colour246]#[fg=black] #W '
+#set -g window-status-current-format '#[bg=white] #I #{?pane_synchronized,#[bg=green],#[default]} #W '
+set -g -a window-status-current-style fg=black,bg=white 
+
+# Plugin stuff
+# set -g @plugin 'tmux-plugins/tpm'
+# set -g @plugin 'tmux-plugins/tmux-sensible'
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
+# 
+# # Continuum options
+# set -g @continuum-restore 'on'
+# set -g @continuum-boot 'on'
+# set -g @continuum-boot-options 'iterm,fullscreen'
+# 
+# # Initialize tmux plugin manager
+# run '~/.tmux/plugins/tpm/tpm'
