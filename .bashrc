@@ -108,7 +108,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # git aliases
-alias gst='git status'
+alias gst='git -c color.status=always status'
 alias gd='git diff'
 alias ga='git add'
 alias ggp='git push origin master'
